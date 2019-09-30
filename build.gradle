@@ -11,6 +11,9 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
+apply plugin: 'java'
+
 buildscript {
     repositories {
         google()
@@ -21,22 +24,33 @@ buildscript {
         classpath 'com.novoda:bintray-release:0.9'
         classpath 'com.google.android.gms:strict-version-matcher-plugin:1.1.0'
     }
+
+	println "Hello World!"
+	println myProperty
+
 }
+
+test{
+	useJUnit()
+	include('**/testutils/src/test/java/com/google/android/exoplayer2/testutil/FakeDateSetTest.java')
+	println "Hello World!"
+}
+
 allprojects {
     repositories {
         google()
         jcenter()
     }
-    project.ext {
-        exoplayerPublishEnabled = false
-    }
-    if (it.hasProperty('externalBuildDir')) {
-        if (!new File(externalBuildDir).isAbsolute()) {
-            externalBuildDir = new File(rootDir, externalBuildDir)
-        }
-        buildDir = "${externalBuildDir}/${project.name}"
-    }
-    group = 'com.google.android.exoplayer'
+//    project.ext {
+//        exoplayerPublishEnabled = false
+//    }
+//    if (it.hasProperty('externalBuildDir')) {
+//        if (!new File(externalBuildDir).isAbsolute()) {
+//            externalBuildDir = new File(rootDir, externalBuildDir)
+//        }
+//        buildDir = "${externalBuildDir}/${project.name}"
+//    }
+//    group = 'com.google.android.exoplayer'
 }
 
 apply from: 'javadoc_combined.gradle'

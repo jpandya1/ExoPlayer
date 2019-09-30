@@ -5,5 +5,6 @@
 # output those results into a execution test
 # Also in a README.txt put the number of passed or failed tests
 
-cd ../ExoPlayer/testutils/src/test/java/com/google/android/exoplayer2/testutil
+#cd ../ExoPlayer/testutils/src/test/java/com/google/android/exoplayer2/testutil
 
+gradle -q > test-execution.txt
