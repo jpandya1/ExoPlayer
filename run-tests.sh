@@ -7,4 +7,4 @@
 
 #cd ../ExoPlayer/testutils/src/test/java/com/google/android/exoplayer2/testutil
 
-gradle -q > test-execution.txt
+gradle -q :testutils:test > test-execution.txt

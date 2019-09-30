@@ -30,10 +30,11 @@ buildscript {
 
 }
 
-test{
-	useJUnit()
-	include('**/testutils/src/test/java/com/google/android/exoplayer2/testutil/FakeDateSetTest.java')
-	println "Hello World!"
+test {
+	filter{
+//		includeTestsMatching "com.google.android.exoplayer2.testutil"
+		includeTestsMatching "*Fake*java"
+	}
 }
 
 allprojects {
